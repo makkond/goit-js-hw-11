@@ -39,10 +39,19 @@ export default defineConfig(({ command }) => {
     },
     plugins: [
       injectHTML(),
-      FullReload(['./src/**/**.html']),
+      FullReload(['./src/**/*.html']),
       SortCss({
         sort: 'mobile-first',
       }),
     ],
+    // Додаємо налаштування для вирішення проблеми з імпортом модулів
+    resolve: {
+      alias: {
+        izitoast: 'izitoast/dist/js/iziToast.min.js',
+      },
+    },
+    optimizeDeps: {
+      include: ['izitoast'],
+    },
   };
 });
