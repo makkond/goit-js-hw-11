@@ -8,7 +8,7 @@ export function createGallery(images) {
   const markup = images
     .map(image => {
       return `
-      <div class="gallery-item">
+      <li class="gallery-item">
         <a href="${image.largeImageURL}">
           <img 
             class="gallery-image" 
@@ -35,7 +35,7 @@ export function createGallery(images) {
             ${image.downloads}
           </p>
         </div>
-      </div>
+      </li>
     `;
     })
     .join('');
@@ -61,15 +61,15 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-  const loader = document.querySelector('.loader-container');
-  if (loader) {
-    loader.classList.remove('is-hidden');
+  const loaderWrapper = document.querySelector('.loader-wrapper');
+  if (loaderWrapper) {
+    loaderWrapper.classList.remove('is-hidden');
   }
 }
 
 export function hideLoader() {
-  const loader = document.querySelector('.loader-container');
-  if (loader) {
-    loader.classList.add('is-hidden');
+  const loaderWrapper = document.querySelector('.loader-wrapper');
+  if (loaderWrapper) {
+    loaderWrapper.classList.add('is-hidden');
   }
 }
